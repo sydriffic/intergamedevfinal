@@ -27,6 +27,7 @@ public class Bar : MonoBehaviour
         }
  
     }
+
     public void MoveOut()
     {
         barOut = true;

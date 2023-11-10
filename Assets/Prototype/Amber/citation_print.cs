@@ -7,14 +7,14 @@ public class citation_print : MonoBehaviour
     public Transform Printer;
 
     private Vector3 endPosition = new Vector3(5, 4, 0);
-    private Vector3 startPosition = Printer.position;
+    private Vector3 startPosition;
     private float duration = 3f;
     private float elapsedTime;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        startPosition = Printer.position;
     }
 
     // Update is called once per frame
