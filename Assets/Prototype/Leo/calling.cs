@@ -104,7 +104,7 @@ public class calling : MonoBehaviour
             passportspawntimer++;
             if (passportspawntimer > passportspawnduration)
             {
-                GameObject newObject = Instantiate(passportprefab, new Vector3(-5, -3, -1), Quaternion.identity);
+                GameObject newObject = Instantiate(passportprefab, new Vector3(-5, -3, 0), Quaternion.identity);
                 passportspawntimer = 0;
                 showthepaper = false;
             }

@@ -10,6 +10,7 @@ public class Button : MonoBehaviour
     Vector3 ogPos;
     bool pressed = false;
     public GameObject paper;
+    public GameObject[] papers;
     public GameObject stamp;
     public bool accepts = false;
     // Start is called before the first frame update
@@ -38,6 +39,10 @@ public class Button : MonoBehaviour
         ogPos = transform.position;
         Vector3 newPos = new Vector3(ogPos.x, ogPos.y - yOffset, ogPos.z);
         transform.position = Vector3.Lerp(transform.position, newPos, moveSpeed);
+        papers = GameObject.FindGameObjectsWithTag("Paper");
+        paper = papers[0];
+        Debug.Log(paper.gameObject.name);
+
         if (GetComponent<Collider2D>().bounds.Intersects(paper.GetComponent<Collider2D>().bounds))
         {
             GameObject stamped =Instantiate(stamp, new Vector3(transform.position.x, transform.position.y + stampOffset, transform.position.z),transform.rotation);

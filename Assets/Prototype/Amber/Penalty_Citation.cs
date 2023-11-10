@@ -13,7 +13,7 @@ public class Penalty_Citation : MonoBehaviour
     {
         gameObject.tag = "penaltySystem";
 
-        Instantiate(penaltyCitationPrefab, Printer.position, Quaternion.identity);
+        
     }
 
     // Update is called once per frame
@@ -30,4 +30,9 @@ public class Penalty_Citation : MonoBehaviour
             
     }
 */
+
+    public void SpawnCitation(bool right)
+    {
+        Instantiate(penaltyCitationPrefab, Printer.position, Quaternion.identity);
+    }
 }
