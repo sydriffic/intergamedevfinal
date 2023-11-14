@@ -8,9 +8,16 @@ public class DocumentDrag : MonoBehaviour
     SpriteRenderer mySR;
     public float edge = 4f;
 
+    Rigidbody2D rb;
+
+    Paper paperScript;
+    bool dropAllowed = false;
+
     private void Start()
     {
         mySR = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
+        paperScript = GetComponent<Paper>();
     }
     void Update()
     {
@@ -19,7 +26,8 @@ public class DocumentDrag : MonoBehaviour
             //change depth
             mySR.sortingOrder = 15;
             //change size
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            Invoke("SetDropAllowanceTimed", 2.0f);
         }
         else
         {
@@ -42,5 +50,31 @@ public class DocumentDrag : MonoBehaviour
     void OnMouseDrag()
     {
         transform.position = GetMousePos() + mousePos;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (dropAllowed)
+        {
+            dropAllowed = false;
+            if (paperScript.stamped)
+            {
+                Debug.Log("print");
+                if (collision.gameObject.name == "BoothWall")
+                {
+                    rb.gravityScale = 1f;
+                }
+            }
+        } 
+
+    }
+
+    private void SetDropAllowanceTimed()
+    {
+        if (paperScript.stamped)
+        {
+            dropAllowed = true;
+        }
+        
     }
 }
