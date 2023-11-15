@@ -132,26 +132,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 495394851}
-  - component: {fileID: 495394850}
+  - component: {fileID: 495394852}
   m_Layer: 0
   m_Name: NextSceneLoader
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &495394850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 495394849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23276fd783af4f44893fcc7fb76b90e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &495394851
 Transform:
   m_ObjectHideFlags: 0
@@ -167,6 +155,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &495394852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495394849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9540993ee025f1b4bbc772453e266001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &791252525
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,6 +507,7 @@ GameObject:
   - component: {fileID: 1886121051}
   - component: {fileID: 1886121050}
   - component: {fileID: 1886121049}
+  - component: {fileID: 1886121052}
   m_Layer: 5
   m_Name: First Sentence
   m_TagString: Untagged
@@ -631,6 +632,25 @@ RectTransform:
   m_AnchoredPosition: {x: -9.770065, y: 1.0713501}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1886121052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886121048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ab4040898da3f4d9a9c83f580cdb2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _text: {fileID: 0}
+  _tmpProText: {fileID: 0}
+  writer: 
+  delayBeforeStart: 0
+  timeBtwChars: 0.1
+  leadingChar: 
+  leadingCharBeforeDelay: 0
 --- !u!1 &1990583125
 GameObject:
   m_ObjectHideFlags: 0

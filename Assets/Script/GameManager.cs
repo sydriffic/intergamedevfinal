@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public void LoadIntro()
+    {
+        SceneManager.LoadScene("IntroductionCutscene");
+    }
+
     public void LoadGame()
     {
         SceneManager.LoadScene("Game");
