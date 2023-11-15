@@ -12,9 +12,12 @@ public class DocumentDrag : MonoBehaviour
 
     Paper paperScript;
     bool dropAllowed = false;
+    bool submitted = false;
 
+    GameObject applicant;
     private void Start()
     {
+        applicant = GameObject.FindGameObjectWithTag("Applicant");
         mySR = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         paperScript = GetComponent<Paper>();
@@ -62,10 +65,22 @@ public class DocumentDrag : MonoBehaviour
                 Debug.Log("print");
                 if (collision.gameObject.name == "BoothWall")
                 {
+                    submitted = true;
                     rb.gravityScale = 1f;
                 }
             }
-        } 
+        }
+
+
+        if (collision.gameObject.name == "Desk" && submitted)
+        {
+            print(applicant);
+            applicant.GetComponent<Applicant>().Decision();
+            Destroy(gameObject);
+        }
+
+
+
 
     }
 
