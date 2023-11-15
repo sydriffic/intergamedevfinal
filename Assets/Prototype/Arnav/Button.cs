@@ -13,6 +13,7 @@ public class Button : MonoBehaviour
     public GameObject[] papers;
     public GameObject stamp;
     public bool accepts = false;
+    GameObject applicant;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +61,10 @@ public class Button : MonoBehaviour
                     {
                         paper.GetComponent<Paper>().accepted = false;
                     }
+
+                    applicant = GameObject.FindWithTag("Applicant");
+                    applicant.GetComponent<Applicant>().accepted = paper.GetComponent<Paper>().accepted;
+                    Debug.Log(applicant);
                 }
 
             }
