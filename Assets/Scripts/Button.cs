@@ -9,15 +9,15 @@ public class Button : MonoBehaviour
     public float stampOffset = 0.5f;
     Vector3 ogPos;
     bool pressed = false;
-    public GameObject paper;
-    public GameObject[] papers;
     public GameObject stamp;
     public bool accepts = false;
+    GameManager gm;
     GameObject applicant;
+    GameObject paper;
     // Start is called before the first frame update
     void Start()
     {
-
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -40,36 +40,33 @@ public class Button : MonoBehaviour
         ogPos = transform.position;
         Vector3 newPos = new Vector3(ogPos.x, ogPos.y - yOffset, ogPos.z);
         transform.position = Vector3.Lerp(transform.position, newPos, moveSpeed);
-        papers = GameObject.FindGameObjectsWithTag("Paper");
-        if (papers.Length != 0)
+        paper = gm.applicant.GetComponent<Applicant>().passport;
+        applicant = gm.applicant;
+        Debug.Log(paper.gameObject.name);
+
+        if (GetComponent<Collider2D>().bounds.Intersects(paper.GetComponent<Collider2D>().bounds))
         {
-            paper = papers[0];
-            Debug.Log(paper.gameObject.name);
-
-            if (GetComponent<Collider2D>().bounds.Intersects(paper.GetComponent<Collider2D>().bounds))
+            Debug.Log("ast");
+            GameObject stamped = Instantiate(stamp, new Vector3(transform.position.x, transform.position.y + stampOffset, transform.position.z), transform.rotation);
+            stamped.transform.SetParent(paper.transform);
+            if (paper.GetComponent<Paper>().stamped == false)
             {
-                GameObject stamped = Instantiate(stamp, new Vector3(transform.position.x, transform.position.y + stampOffset, transform.position.z), transform.rotation);
-                stamped.transform.SetParent(paper.transform);
-                if (paper.GetComponent<Paper>().stamped == false)
+                paper.GetComponent<Paper>().stamped = true;
+                if (accepts)
                 {
-                    paper.GetComponent<Paper>().stamped = true;
-                    if (accepts)
-                    {
-                        paper.GetComponent<Paper>().accepted = true;
-                    }
-                    else
-                    {
-                        paper.GetComponent<Paper>().accepted = false;
-                    }
-
-                    applicant = GameObject.FindWithTag("Applicant");
-                    applicant.GetComponent<Applicant>().accepted = paper.GetComponent<Paper>().accepted;
-                    Debug.Log(applicant);
+                    paper.GetComponent<Paper>().accepted = true;
+                }
+                else
+                {
+                    paper.GetComponent<Paper>().accepted = false;
                 }
 
+                applicant.GetComponent<Applicant>().accepted = paper.GetComponent<Paper>().accepted;
+                Debug.Log(applicant);
             }
-            print(paper.GetComponent<Paper>().accepted);
+
         }
+   
         Invoke("ResetButton", 1f);
     }
 

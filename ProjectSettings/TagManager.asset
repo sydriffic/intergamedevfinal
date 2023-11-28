@@ -8,6 +8,7 @@ TagManager:
   - Deny
   - penaltySystem
   - Paper
+  - Applicant
   layers:
   - Default
   - TransparentFX
