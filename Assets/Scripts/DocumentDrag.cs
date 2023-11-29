@@ -15,6 +15,7 @@ public class DocumentDrag : MonoBehaviour
     Paper paperScript;
    
     bool submitted = false;
+    GameObject desk;
     
 
     GameManager gm;
@@ -24,6 +25,7 @@ public class DocumentDrag : MonoBehaviour
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         applicant = gm.applicant;
+        desk = GameObject.Find("Desk");
         mySR = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         if (isPassport)
@@ -35,6 +37,7 @@ public class DocumentDrag : MonoBehaviour
 
     void Update()
     {
+
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (Input.GetMouseButtonDown(0))
         {
@@ -61,11 +64,25 @@ public class DocumentDrag : MonoBehaviour
             mySR.sortingOrder = 15;
             //change size
             transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            if (GetComponent<Collider2D>().bounds.Intersects(desk.GetComponent<Collider2D>().bounds))
+            {
+                Debug.Log(desk);
+                rb.gravityScale = 0f;
+                rb.velocity= new Vector3(0,0,0);
+
+            }
+            else
+            {
+               
+                rb.gravityScale = 1f;
+            }
         }
         else
         {
             mySR.sortingOrder = -8;
             transform.localScale = new Vector3(2, 2, 1);
+            rb.gravityScale = 0f;
+            rb.velocity = new Vector3(0, 0, 0);
             //}
 
         }
