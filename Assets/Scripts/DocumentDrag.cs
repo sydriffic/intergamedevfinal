@@ -9,6 +9,10 @@ public class DocumentDrag : MonoBehaviour
     Vector3 newMouse;
     SpriteRenderer mySR;
     public float edge = 3.5f;
+    public float gravityLevel = 2f;
+
+    public Sprite backSprite;
+    public Sprite frontSprite;
 
     Rigidbody2D rb;
 
@@ -23,10 +27,12 @@ public class DocumentDrag : MonoBehaviour
     GameObject applicant;
     private void Start()
     {
+        
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         applicant = gm.applicant;
         desk = GameObject.Find("Desk");
         mySR = GetComponent<SpriteRenderer>();
+        mySR.sprite = backSprite;
         rb = GetComponent<Rigidbody2D>();
         if (isPassport)
         {
@@ -61,7 +67,9 @@ public class DocumentDrag : MonoBehaviour
         if (transform.position.x < -edge)
         {
             //change depth
+            mySR.sprite = backSprite;
             mySR.sortingOrder = 15;
+            mySR.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
             //change size
             transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             if (GetComponent<Collider2D>().bounds.Intersects(desk.GetComponent<Collider2D>().bounds))
@@ -74,11 +82,13 @@ public class DocumentDrag : MonoBehaviour
             else
             {
                
-                rb.gravityScale = 1f;
+                rb.gravityScale = gravityLevel;
             }
         }
         else
         {
+            mySR.sprite = frontSprite;
+            mySR.maskInteraction = SpriteMaskInteraction.None;
             mySR.sortingOrder = -8;
             transform.localScale = new Vector3(2, 2, 1);
             rb.gravityScale = 0f;
@@ -129,7 +139,7 @@ public class DocumentDrag : MonoBehaviour
         {
             Debug.Log("Check");
             submitted = true;
-            rb.gravityScale = 1f;
+            rb.gravityScale = gravityLevel;
         }
     }
 }

@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6218631964850399242}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.42, y: -0.3, z: -1}
-  m_LocalScale: {x: 3.1, y: 2.8556857, z: 0.6053332}
+  m_LocalPosition: {x: -13.42, y: -0.3, z: 0}
+  m_LocalScale: {x: 2.855686, y: 2.6306264, z: 0.5576263}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 9
-  m_Sprite: {fileID: 229345931, guid: 5e540e5909e2e481fa711635acd2909a, type: 3}
+  m_Sprite: {fileID: -440973510, guid: ce7826532bcc5450dae9026116fd2162, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -123,5 +123,10 @@ MonoBehaviour:
   accepted: 0
   anim: {fileID: 6218631964850399247}
   papers:
+  - {fileID: 6150939107509837318, guid: 69b3d266ff2264c50be75e58df5dd044, type: 3}
   - {fileID: 6150939107509837318, guid: 7c524e4b78c864d1e9d23f5b27971fb8, type: 3}
   passport: {fileID: 0}
+  dialogue: []
+  dialogueAllign: 
+  canvas: {fileID: 0}
+  textPrefab: {fileID: 0}

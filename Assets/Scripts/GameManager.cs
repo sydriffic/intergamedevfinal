@@ -29,9 +29,13 @@ public class GameManager : MonoBehaviour
 
     public void CallApplicant()
     {
-        applicant = Instantiate(applicants[applicantIndex]); 
-        Instantiate(topApplicant);
-        applicantIndex++;
+        if(applicantIndex < applicants.Length)
+        {
+            applicant = Instantiate(applicants[applicantIndex]);
+            Instantiate(topApplicant);
+            applicantIndex++;
+        }
+        
     }
 
     public void NextApplicant()
@@ -42,7 +46,10 @@ public class GameManager : MonoBehaviour
 
     public void resetBooth()
     {
-        booth.GetComponent<calling>().boothAnim();
+        if (applicantIndex < applicants.Length)
+        {
+            booth.GetComponent<calling>().boothAnim();
+        }
     }
 
     public void PenaltySpawn()
