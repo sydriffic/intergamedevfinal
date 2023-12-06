@@ -22,10 +22,24 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 
+    //endings
     public void EndGame()
     {
         SceneManager.LoadScene("End");
     }
+    public void EndGameGood()
+    {
+        SceneManager.LoadScene("End");
+    }
+    public void EndGameBad()
+    {
+        SceneManager.LoadScene("End");
+    }
+    public void EndGameNeutral()
+    {
+        SceneManager.LoadScene("End");
+    }
+
 
     public void CallApplicant()
     {
