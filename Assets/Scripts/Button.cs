@@ -46,7 +46,7 @@ public class Button : MonoBehaviour
             applicant = gm.applicant;
             Debug.Log(paper.gameObject.name);
 
-            if (GetComponent<Collider2D>().bounds.Intersects(paper.GetComponent<Collider2D>().bounds))
+            if (transform.parent.gameObject.GetComponent<Collider2D>().bounds.Intersects(paper.GetComponent<Collider2D>().bounds))
             {
                 Debug.Log("ast");
                 GameObject stamped = Instantiate(stamp, new Vector3(transform.position.x, transform.position.y + stampOffset, transform.position.z), transform.rotation);

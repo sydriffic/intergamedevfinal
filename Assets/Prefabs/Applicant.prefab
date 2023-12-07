@@ -129,4 +129,6 @@ MonoBehaviour:
   passport: {fileID: 0}
   dialogue: []
   dialogueAllign: 
+  idSprite: {fileID: 21300000, guid: 8a8df035210c7411b808e4e1a0296cfe, type: 3}
   textPrefab: {fileID: 0}
+  papersSubmitted: 0

@@ -134,4 +134,6 @@ MonoBehaviour:
   - baaaaa
   - kkkkk
   dialogueAllign: 0000000001000000010000000000000001000000
+  idSprite: {fileID: 21300000, guid: f4703b8c5e9ac4ad784e9f182d3f97de, type: 3}
   textPrefab: {fileID: 3053593506430091827, guid: 5a4d8dfdb18bb4dc0b16148da5d467ba, type: 3}
+  papersSubmitted: 0

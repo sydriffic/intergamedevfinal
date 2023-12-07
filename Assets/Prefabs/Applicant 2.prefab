@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d105cd17571af4c71a6ef358626bf36c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myTransform: {fileID: 0}
   shouldAccepted: 1
   accepted: 0
   anim: {fileID: 6218631964850399247}
@@ -128,5 +129,6 @@ MonoBehaviour:
   passport: {fileID: 0}
   dialogue: []
   dialogueAllign: 
-  canvas: {fileID: 0}
+  idSprite: {fileID: 21300000, guid: fafb9c71c88214c559685c6bc7d706c3, type: 3}
   textPrefab: {fileID: 0}
+  papersSubmitted: 0

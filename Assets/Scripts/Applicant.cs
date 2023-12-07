@@ -18,7 +18,7 @@ public class Applicant : MonoBehaviour
 
     float textOffset = -100f;
     float boxOffset = 3f;
-
+    public Sprite idSprite;
     GameObject canvas;
     public GameObject textPrefab;
     public float papersSubmitted = 0;
@@ -56,13 +56,14 @@ public class Applicant : MonoBehaviour
         
         gm.applicantPresent = true;
         StartCoroutine(DailogueSpawn());
-        passport = Instantiate(papers[0], new Vector3(-5, -3, 0), Quaternion.identity);
+        passport = Instantiate(papers[0], new Vector3(-5, -1, 0), Quaternion.identity);
         SpawnedPaper[0] = passport;
         
-        SpawnedPaper[1]= Instantiate(papers[1], new Vector3(-5, -3.5f, 0), Quaternion.identity); ;
+        SpawnedPaper[1]= Instantiate(papers[1], new Vector3(-5, -1.5f, 0), Quaternion.identity);
+        SpawnedPaper[1].GetComponent<DocumentDrag>().frontSprite = idSprite;
         if (papers.Length == 3)
         {
-            SpawnedPaper[2]=Instantiate(papers[2], new Vector3(-5, -4f, 0), Quaternion.identity);
+            SpawnedPaper[2]=Instantiate(papers[2], new Vector3(-5, -2f, 0), Quaternion.identity);
         }
     }
 
@@ -98,7 +99,8 @@ public class Applicant : MonoBehaviour
         anim.SetBool("startMove", false);
     }
 
-    private IEnumerator DailogueSpawn() { 
+    private IEnumerator DailogueSpawn()
+    { 
     
         GameObject[] textSpawn = new GameObject[dialogue.Length];
         int topIndex=0;
@@ -146,11 +148,6 @@ public class Applicant : MonoBehaviour
         {
             Destroy(textSpawn[i]);
         }
-
-
-    }
-
-    
-        
+    }   
     
 }
