@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8305242151160769613}
   - component: {fileID: 635061948764683729}
   - component: {fileID: 4185823851583863998}
+  - component: {fileID: 7557578483115900505}
   m_Layer: 0
   m_Name: ticketprefab
   m_TagString: Paper
@@ -104,7 +105,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.6, y: 0.8}
+    oldSize: {x: 1.5, y: 2}
     newSize: {x: 1.64, y: 2.33}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -152,3 +153,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &7557578483115900505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6150939107509837318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd6f610fc8fe841f2aecafaae48a5354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stamped: 0
+  accepted: 0
+  rb: {fileID: 0}

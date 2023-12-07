@@ -7,7 +7,6 @@ public class Paper : MonoBehaviour
     public bool stamped = false;
     public bool accepted = false;
 
-    public Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {

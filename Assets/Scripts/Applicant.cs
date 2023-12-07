@@ -21,7 +21,8 @@ public class Applicant : MonoBehaviour
 
     GameObject canvas;
     public GameObject textPrefab;
-
+    public float papersSubmitted = 0;
+    GameObject[] SpawnedPaper;
     int textOS;
     
     SpriteRenderer mySR;
@@ -33,10 +34,12 @@ public class Applicant : MonoBehaviour
 
     private void Start()
     {
+        
         canvas = GameObject.Find("Canvas");
         mySR = GetComponent<SpriteRenderer>();
         mySR.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        SpawnedPaper = new GameObject[papers.Length];
     }
 
     // Update is called once per frame
@@ -50,12 +53,16 @@ public class Applicant : MonoBehaviour
 
     public void SpawnPaper()
     {
+        
+        gm.applicantPresent = true;
         StartCoroutine(DailogueSpawn());
         passport = Instantiate(papers[0], new Vector3(-5, -3, 0), Quaternion.identity);
-        Instantiate(papers[1], new Vector3(-5, -3.5f, 0), Quaternion.identity);
+        SpawnedPaper[0] = passport;
+        
+        SpawnedPaper[1]= Instantiate(papers[1], new Vector3(-5, -3.5f, 0), Quaternion.identity); ;
         if (papers.Length == 3)
         {
-            Instantiate(papers[2], new Vector3(-5, -4f, 0), Quaternion.identity);
+            SpawnedPaper[2]=Instantiate(papers[2], new Vector3(-5, -4f, 0), Quaternion.identity);
         }
     }
 
@@ -66,6 +73,7 @@ public class Applicant : MonoBehaviour
 
     public void ApplicantLeft()
     {
+        gm.applicantPresent = false;
         gm.resetBooth();
         if (shouldAccepted != accepted)
         {
@@ -77,6 +85,10 @@ public class Applicant : MonoBehaviour
             gm.money += 20;
         }
         Debug.Log(gm.money);
+        for(int i = 0; i < SpawnedPaper.Length; i++)
+        {
+            Destroy(SpawnedPaper[i]);
+        }
         Destroy(gameObject);
     }
 
@@ -89,19 +101,21 @@ public class Applicant : MonoBehaviour
     private IEnumerator DailogueSpawn() { 
     
         GameObject[] textSpawn = new GameObject[dialogue.Length];
+        int topIndex=0;
 
         for(int i=0; i < dialogue.Length; i++)
         {
-            if (textOS > 3)
+            if (textOS > 2)
             {
-                for (int j = 0; j < textOS; j++)
+                for (int j = topIndex; j < textOS+topIndex; j++)
                 {
                     textSpawn[j].GetComponent<RectTransform>().anchoredPosition = new Vector2(0, textSpawn[j].GetComponent<RectTransform>().anchoredPosition.y - textOffset);
                 }
+                topIndex++;
                 textOS--;
             }
 
-            textSpawn[i]=Instantiate(textPrefab, new Vector2(0, 0), canvas.transform.rotation, canvas.transform);
+            textSpawn[i]=Instantiate(textPrefab, new Vector2(0, 0), canvas.transform.rotation, canvas.transform.GetChild(0).transform);
             
            
 
@@ -122,10 +136,21 @@ public class Applicant : MonoBehaviour
             textSpawn[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(0,textOffset*textOS);
             textSpawn[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = dialogue[i];
             textSpawn[i].GetComponent<RectTransform>().sizeDelta = new Vector2(dialogue[i].Length * boxOffset, 100);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
             textOS++;
 
         }
-        
+
+        yield return new WaitForSeconds(5f);
+        for (int i =0; i < textSpawn.Length; i++)
+        {
+            Destroy(textSpawn[i]);
+        }
+
+
     }
+
+    
+        
+    
 }

@@ -14,6 +14,7 @@ public class DocumentDrag : MonoBehaviour
     public Sprite backSprite;
     public Sprite frontSprite;
 
+
     Rigidbody2D rb;
 
     Paper paperScript;
@@ -37,6 +38,10 @@ public class DocumentDrag : MonoBehaviour
         if (isPassport)
         {
             paperScript = GetComponent<Paper>();
+        }
+        else
+        {
+            paperScript = applicant.GetComponent<Applicant>().passport.GetComponent<Paper>();
         }
         
     }
@@ -99,7 +104,7 @@ public class DocumentDrag : MonoBehaviour
 
         if (isSubmittable)
         {
-            if (paperScript.stamped || !isPassport)
+            if (paperScript.stamped)
             {
                 if (transform.position.x < -edge)
                 {
@@ -121,9 +126,12 @@ public class DocumentDrag : MonoBehaviour
 
         if (collision.gameObject.name == "Desk" && submitted && rb.velocity.y<0)
         {
-
-            gm.NextApplicant();
-            Destroy(gameObject);
+            applicant.GetComponent<Applicant>().papersSubmitted++;
+            if (applicant.GetComponent<Applicant>().papers.Length == applicant.GetComponent<Applicant>().papersSubmitted)
+            {
+                gm.NextApplicant();
+            }
+            gameObject.SetActive(false);
         }
 
     }

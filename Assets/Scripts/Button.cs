@@ -40,34 +40,38 @@ public class Button : MonoBehaviour
         ogPos = transform.position;
         Vector3 newPos = new Vector3(ogPos.x, ogPos.y - yOffset, ogPos.z);
         transform.position = Vector3.Lerp(transform.position, newPos, moveSpeed);
-        paper = gm.applicant.GetComponent<Applicant>().passport;
-        applicant = gm.applicant;
-        Debug.Log(paper.gameObject.name);
-
-        if (GetComponent<Collider2D>().bounds.Intersects(paper.GetComponent<Collider2D>().bounds))
+        if (gm.applicantPresent)
         {
-            Debug.Log("ast");
-            GameObject stamped = Instantiate(stamp, new Vector3(transform.position.x, transform.position.y + stampOffset, transform.position.z), transform.rotation);
-            stamped.transform.SetParent(paper.transform);
-            if (paper.GetComponent<Paper>().stamped == false)
+            paper = gm.applicant.GetComponent<Applicant>().passport;
+            applicant = gm.applicant;
+            Debug.Log(paper.gameObject.name);
+
+            if (GetComponent<Collider2D>().bounds.Intersects(paper.GetComponent<Collider2D>().bounds))
             {
-                paper.GetComponent<Paper>().stamped = true;
-                if (accepts)
+                Debug.Log("ast");
+                GameObject stamped = Instantiate(stamp, new Vector3(transform.position.x, transform.position.y + stampOffset, transform.position.z), transform.rotation);
+                stamped.transform.SetParent(paper.transform);
+                if (paper.GetComponent<Paper>().stamped == false)
                 {
-                    paper.GetComponent<Paper>().accepted = true;
-                }
-                else
-                {
-                    paper.GetComponent<Paper>().accepted = false;
+                    paper.GetComponent<Paper>().stamped = true;
+                    if (accepts)
+                    {
+                        paper.GetComponent<Paper>().accepted = true;
+                    }
+                    else
+                    {
+                        paper.GetComponent<Paper>().accepted = false;
+                    }
+
+                    applicant.GetComponent<Applicant>().accepted = paper.GetComponent<Paper>().accepted;
+                    Debug.Log(applicant);
                 }
 
-                applicant.GetComponent<Applicant>().accepted = paper.GetComponent<Paper>().accepted;
-                Debug.Log(applicant);
             }
-
         }
+        
    
-        Invoke("ResetButton", 1f);
+        Invoke("ResetButton", 0.5f);
     }
 
     private void ResetButton()

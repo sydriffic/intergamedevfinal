@@ -166,3 +166,6 @@ MonoBehaviour:
   isSubmittable: 0
   isPassport: 0
   edge: 3.5
+  gravityLevel: 2
+  backSprite: {fileID: 21300000, guid: 5f3654740ec5f485db8381a0e3e4ae24, type: 3}
+  frontSprite: {fileID: 21300000, guid: c483fe8f3c818439faa150dcbdf3328d, type: 3}

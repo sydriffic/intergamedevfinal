@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject booth;
     public GameObject penaltySpawner;
     public int money = 100;
+    public bool applicantPresent = false;
     public void LoadIntro()
     {
         SceneManager.LoadScene("IntroductionCutscene");
