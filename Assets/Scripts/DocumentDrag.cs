@@ -13,7 +13,7 @@ public class DocumentDrag : MonoBehaviour
 
     public Sprite backSprite;
     public Sprite frontSprite;
-
+    
     GameObject booth;
 
 
@@ -28,8 +28,9 @@ public class DocumentDrag : MonoBehaviour
 
     GameManager gm;
 
+    GameObject[] movables;
     bool clicked = false;
-
+    public bool movable = true;
     GameObject applicant;
     private void Start()
     {
@@ -74,16 +75,29 @@ public class DocumentDrag : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0) && clicked)
         {
-            if(mousePos2D.x < -edge && transform.position.x < -edge)
+            movables = GameObject.FindGameObjectsWithTag("Paper");
+            for (int i = 0; i < movables.Length; i++)
             {
+                if (movables[i] != gameObject)
+                {
+                    movables[i].GetComponent<DocumentDrag>().movable = true;
+                }
+
+            }
+
+            if (mousePos2D.x < -edge || transform.position.x < -edge)
+            {
+                mySR.sortingOrder = 15;
                 rb.gravityScale = gravityLevel;
                 
             }
             else
             {
+                mySR.sortingOrder = -8;
                 rb.gravityScale = 0f;
                 rb.velocity = new Vector3(0, 0, 0);
             }
+            transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
             clicked = false;
         }
 
@@ -94,8 +108,18 @@ public class DocumentDrag : MonoBehaviour
             Debug.Log(hit);
             
 
-            if (hit.collider != null && hit.transform == gameObject.transform)
+            if (hit.collider != null && hit.transform == gameObject.transform && movable)
             {
+                movables = GameObject.FindGameObjectsWithTag("Paper");
+                for(int i =0; i<movables.Length; i++)
+                {
+                    if(movables[i]!= gameObject)
+                    {
+                        movables[i].GetComponent<DocumentDrag>().movable = false;
+                    }
+                    
+                }
+
 
                 clicked = true;
                 rb.gravityScale = 0f;
@@ -105,7 +129,7 @@ public class DocumentDrag : MonoBehaviour
                     mySR.sprite = backSprite;
                     if (!submitted)
                     {
-                        mySR.sortingOrder = 15;
+                        mySR.sortingOrder = 16;
                     }
 
                     mySR.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
@@ -124,7 +148,7 @@ public class DocumentDrag : MonoBehaviour
                 {
                     mySR.sprite = frontSprite;
                     mySR.maskInteraction = SpriteMaskInteraction.None;
-                    mySR.sortingOrder = -8;
+                    mySR.sortingOrder = -7;
                     transform.localScale = new Vector3(2, 2, 1);
                     
                     //}
@@ -132,7 +156,11 @@ public class DocumentDrag : MonoBehaviour
                 }
 
                 Debug.Log("a");
+                
                 transform.position = mousePos + newMouse;
+                transform.position = new Vector3(transform.position.x, transform.position.y, -0.5f);
+               
+                
 
             }
 
