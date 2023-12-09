@@ -14,10 +14,14 @@ public class Button : MonoBehaviour
     GameManager gm;
     GameObject applicant;
     GameObject paper;
+
+    GameObject bar;
+
     // Start is called before the first frame update
     void Start()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        bar= transform.parent.gameObject;
     }
 
     // Update is called once per frame
@@ -28,7 +32,7 @@ public class Button : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0)&&!pressed)
+        if (Input.GetMouseButtonDown(0)&&!pressed && bar.GetComponent<Bar>().barOut)
         {
             Pressed();
         }

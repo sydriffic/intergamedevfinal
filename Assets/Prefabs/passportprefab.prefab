@@ -8,7 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2400008251369586694}
+  - component: {fileID: 7755904045372966705}
   - component: {fileID: 8905718059369706879}
   - component: {fileID: 8305242151160769613}
   - component: {fileID: 635061948764683729}
@@ -21,8 +21,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2400008251369586694
-Transform:
+--- !u!224 &7755904045372966705
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -36,6 +36,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 2.3228571, y: 1.3971429}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &8905718059369706879
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -98,21 +103,21 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.012233496, y: 0.041947365}
+  m_Offset: {x: 0.009657681, y: 0.024434268}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.252, y: 1.956}
+    oldSize: {x: 2.3228571, y: 1.3971429}
     newSize: {x: 1.64, y: 2.33}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.2342691, y: 2.4138947}
+  m_Size: {x: 2.6650987, y: 1.7659155}
   m_EdgeRadius: 0
 --- !u!114 &635061948764683729
 MonoBehaviour:
@@ -128,9 +133,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSubmittable: 1
   isPassport: 1
-  edge: 3.5
+  edge: 2
   gravityLevel: 2
-  backSprite: {fileID: 21300000, guid: 085639bffaa564614a675b0d6fe7a217, type: 3}
+  backSprite: {fileID: 21300000, guid: fbc8eea847d87486bbef6526800fd6dd, type: 3}
   frontSprite: {fileID: 21300000, guid: f84c5351065c148df936568d1f3194b8, type: 3}
 --- !u!50 &4185823851583863998
 Rigidbody2D:

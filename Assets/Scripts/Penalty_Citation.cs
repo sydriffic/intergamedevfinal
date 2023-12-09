@@ -31,8 +31,9 @@ public class Penalty_Citation : MonoBehaviour
     }
 */
 
-    public void SpawnCitation(bool right)
+    public void SpawnCitation(Sprite citationSprite)
     {
-        Instantiate(penaltyCitationPrefab, Printer.position, Quaternion.identity);
+        GameObject citation= Instantiate(penaltyCitationPrefab, Printer.position, Quaternion.identity);
+        citation.GetComponent<DocumentDrag>().frontSprite = citationSprite;
     }
 }

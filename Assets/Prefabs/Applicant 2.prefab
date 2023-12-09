@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 9
+  m_SortingOrder: 8
   m_Sprite: {fileID: 582830371, guid: ce7826532bcc5450dae9026116fd2162, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -120,15 +120,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTransform: {fileID: 0}
-  shouldAccepted: 1
+  shouldAccepted: 0
   accepted: 0
   anim: {fileID: 6218631964850399247}
   papers:
   - {fileID: 6150939107509837318, guid: 69b3d266ff2264c50be75e58df5dd044, type: 3}
   - {fileID: 6150939107509837318, guid: 7c524e4b78c864d1e9d23f5b27971fb8, type: 3}
   passport: {fileID: 0}
-  dialogue: []
-  dialogueAllign: 
-  idSprite: {fileID: 21300000, guid: fafb9c71c88214c559685c6bc7d706c3, type: 3}
-  textPrefab: {fileID: 0}
+  dialogue:
+  - Here you go!
+  - My name is Tommy! I.....
+  - Reason for visit?
+  - My parents work in here.
+  - I want to meet them!
+  dialogueAllign: 0000000000000000010000000000000000000000
+  dialogueAccepted:
+  - La Laa Laa Laaa!
+  - Thank uuu!
+  - ...
+  acceptedAllign: 000000000000000001000000
+  dialogueDeclined:
+  - You cannot enter.
+  - Why not? I have everything.
+  - I even asked!
+  - Come back with real papers.
+  - Alright.......
+  - I will come back again!
+  declinedAllign: 010000000000000000000000010000000000000000000000
+  idSprite: {fileID: 21300000, guid: e85982344d4eb4af0bddace0ab4a2dc6, type: 3}
+  accessSprite: {fileID: 21300000, guid: 3afea4c65700c44368e6f895639d455f, type: 3}
+  citationSprite: {fileID: 21300000, guid: fc289cb6dfbbc4e7b87748fe50c5a734, type: 3}
+  textPrefab: {fileID: 3053593506430091827, guid: 5a4d8dfdb18bb4dc0b16148da5d467ba, type: 3}
   papersSubmitted: 0

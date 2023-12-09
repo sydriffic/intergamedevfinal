@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
 
     public void NextApplicant()
     {
-        applicant.GetComponent<Applicant>().leaveAnim();
+        applicant.GetComponent<Applicant>().endDialogue();
        
     }
 
@@ -67,8 +67,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void PenaltySpawn()
+    public void PenaltySpawn(Sprite a)
     {
-        penaltySpawner.GetComponent<Penalty_Citation>().SpawnCitation(true);
+        penaltySpawner.GetComponent<Penalty_Citation>().SpawnCitation(a);
     }
 }

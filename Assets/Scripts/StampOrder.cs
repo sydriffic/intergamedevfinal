@@ -16,6 +16,14 @@ public class StampOrder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mySR.sortingOrder = paper.GetComponent<SpriteRenderer>().sortingOrder+1;
+        if(transform.position.x> -paper.GetComponent<DocumentDrag>().edge)
+        {
+            mySR.sortingOrder = paper.GetComponent<SpriteRenderer>().sortingOrder + 1;
+        }
+        else
+        {
+            mySR.sortingOrder = paper.GetComponent<SpriteRenderer>().sortingOrder - 1;
+        }
+        
     }
 }
