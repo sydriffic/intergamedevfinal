@@ -48,7 +48,15 @@ public class DocumentDrag : MonoBehaviour
         }
         else
         {
-            paperScript = applicant.GetComponent<Applicant>().passport.GetComponent<Paper>();
+            if (isSubmittable)
+            {
+                paperScript = applicant.GetComponent<Applicant>().passport.GetComponent<Paper>();
+            }
+            else
+            {
+                paperScript = null;
+            }
+            
         }
 
         GameObject[] docs = GameObject.FindGameObjectsWithTag("Paper");

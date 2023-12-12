@@ -151,7 +151,7 @@ public class Applicant : MonoBehaviour
                 textOS--;
             }
 
-            textSpawn[i]=Instantiate(textPrefab, new Vector2(0, 0), canvas.transform.rotation, canvas.transform.GetChild(0).transform);
+            textSpawn[i]=Instantiate(textPrefab, new Vector2(0, 0), canvas.transform.rotation, canvas.transform.GetChild(1).transform);
             
            
 
