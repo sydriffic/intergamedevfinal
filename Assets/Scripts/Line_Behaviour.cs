@@ -23,6 +23,11 @@ public class Line_Behaviour : MonoBehaviour
         }       
     }
 
+    void Update()
+    {
+        //if ()
+    }
+
     private Vector3 RandomVector(float min, float max)
     {
         var x = Random.Range(min, max);
