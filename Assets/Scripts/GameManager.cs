@@ -13,13 +13,28 @@ public class GameManager : MonoBehaviour
     public GameObject penaltySpawner;
     public int money = 100;
     public bool applicantPresent = false;
+
+    FadeInOut fade;
+
+    void Start()
+    {
+        fade = FindObjectOfType<FadeInOut>();
+    }
+
+    public void Transition()
+    {
+        StartCoroutine(LoadGame());
+    }
+
     public void LoadIntro()
     {
         SceneManager.LoadScene("IntroductionCutscene");
     }
 
-    public void LoadGame()
+    public IEnumerator LoadGame()
     {
+        fade.FadeIn();
+        yield return new WaitForSeconds(1);
         SceneManager.LoadScene("Game");
     }
 
@@ -30,11 +45,11 @@ public class GameManager : MonoBehaviour
     }
     public void EndGameGood()
     {
-        SceneManager.LoadScene("End");
+        SceneManager.LoadScene("EndRich");
     }
     public void EndGameBad()
     {
-        SceneManager.LoadScene("End");
+        SceneManager.LoadScene("EndBroke");
     }
     public void EndGameNeutral()
     {
