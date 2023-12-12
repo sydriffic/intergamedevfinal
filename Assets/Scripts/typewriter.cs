@@ -22,6 +22,7 @@ public class typewriter : MonoBehaviour
 	[SerializeField] private bool startOnCollision = false;
 	enum options { clear, complete }
 	[SerializeField] options collisionExitOptions;
+	bool dialogueisrunning;
 
 	// Use this for initialization
 	void Awake()
@@ -168,5 +169,5 @@ public class typewriter : MonoBehaviour
 		{
 			tmpProText.text = tmpProText.text.Substring(0, tmpProText.text.Length - leadingChar.Length);
 		}
-	}
+	}	
 }
