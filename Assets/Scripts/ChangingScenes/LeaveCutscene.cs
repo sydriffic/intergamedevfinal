@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LeaveCutscene : MonoBehaviour
 {
-    void OnEnable()
+    public void OnEnable()
     {
         SceneManager.LoadScene("Game", LoadSceneMode.Additive);
     }

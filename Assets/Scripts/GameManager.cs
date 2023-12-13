@@ -26,6 +26,11 @@ public class GameManager : MonoBehaviour
         StartCoroutine(LoadGame());
     }
 
+    public void LoadStartScreen()
+    {
+        SceneManager.LoadScene("Start");
+    }
+
     public void LoadIntro()
     {
         SceneManager.LoadScene("IntroductionCutscene");
