@@ -941,14 +941,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 656963712}
   lines:
-  - NUIT is the first city in the world to start as a black market,
+  - LA NUIT is the first city in the world to start as a black market,
   - free from the control of any government.
-  - 'As a security guard of NUIT, your job is to protect the boarder of the state. '
+  - 'As a security guard of LA NUIT, your job is to protect the boarder of the state. '
   - Everyone who wants to enter NUIT holds a purpose. However, only a select few
     are eligible to enter the market.
   - This is the largest black market in the world and your workwill help the safety
     of the operation.
-  - Welcome to NUIT.
+  - LA NUIT RESTERA.
   textSpeed: 0.1
   NextButton: {fileID: 1676468007}
 --- !u!114 &1680796524
