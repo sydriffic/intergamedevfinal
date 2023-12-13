@@ -84,6 +84,7 @@ public class Applicant : MonoBehaviour
 
     public void startAnim()
     {
+        //Sound Effect
         walkinsoundEffect.Play();
         anim.SetBool("startMove", true);
     }
