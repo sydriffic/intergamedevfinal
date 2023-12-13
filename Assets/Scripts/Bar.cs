@@ -6,6 +6,9 @@ public class Bar : MonoBehaviour
 {
     Animator anim;
     public bool barOut=false;
+    [SerializeField] AudioSource baroutSoundEffect;
+    [SerializeField] AudioSource barinSoundEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +33,7 @@ public class Bar : MonoBehaviour
 
     public void MoveOut()
     {
+        baroutSoundEffect.Play();
         barOut = true;
         Debug.Log("Pressed");
         anim.SetBool("ShowBar", true);
@@ -37,6 +41,7 @@ public class Bar : MonoBehaviour
 
     public void MoveIn()
     {
+        barinSoundEffect.Play();
         barOut = false;
          Debug.Log("Pressed");
         anim.SetBool("ShowBar", false);

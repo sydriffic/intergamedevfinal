@@ -15,6 +15,8 @@ public class Button : MonoBehaviour
     GameObject applicant;
     GameObject paper;
 
+    [SerializeField] AudioSource stampsoundEffect;
+
     GameObject bar;
 
     // Start is called before the first frame update
@@ -40,6 +42,7 @@ public class Button : MonoBehaviour
 
     private void Pressed()
     {
+        stampsoundEffect.Play();
         pressed = true;
         ogPos = transform.position;
         Vector3 newPos = new Vector3(ogPos.x, ogPos.y - yOffset, ogPos.z);

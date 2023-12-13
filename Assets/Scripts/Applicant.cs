@@ -34,6 +34,10 @@ public class Applicant : MonoBehaviour
     int textOS;
     float textX = 20f;
     SpriteRenderer mySR;
+
+   [SerializeField] AudioSource papersoundEffect;
+   [SerializeField] AudioSource walkinsoundEffect;
+   [SerializeField] AudioSource dialogueboxsoundEffect;
     // Start is called before the first frame update
     void Awake()
     {
@@ -42,7 +46,6 @@ public class Applicant : MonoBehaviour
 
     private void Start()
     {
-        
         canvas = GameObject.Find("Canvas");
         mySR = GetComponent<SpriteRenderer>();
         mySR.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
@@ -61,7 +64,7 @@ public class Applicant : MonoBehaviour
 
     public void SpawnPaper()
     {
-        
+        papersoundEffect.Play();
         gm.applicantPresent = true;
         StartCoroutine(DailogueSpawn(dialogue,dialogueAllign));
         passport = Instantiate(papers[0], new Vector3(-5, -1, 0), Quaternion.identity);
@@ -81,6 +84,7 @@ public class Applicant : MonoBehaviour
 
     public void startAnim()
     {
+        walkinsoundEffect.Play();
         anim.SetBool("startMove", true);
     }
 
@@ -108,6 +112,7 @@ public class Applicant : MonoBehaviour
 
     public void leaveAnim()
     {
+        walkinsoundEffect.Play();
         if (accepted)
         {
             anim.SetBool("startMove", false);
@@ -153,7 +158,7 @@ public class Applicant : MonoBehaviour
             }
 
             textSpawn[i]=Instantiate(textPrefab, new Vector2(0, 0), canvas.transform.rotation, canvas.transform.GetChild(1).transform);
-            
+            dialogueboxsoundEffect.Play();
            
 
             Debug.Log(textOffset * i);

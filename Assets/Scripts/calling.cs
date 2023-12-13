@@ -8,7 +8,7 @@ public class calling : MonoBehaviour
     GameManager gm;
     public GameObject passportprefab;
     public bool boothEnabled=true;
-
+    [SerializeField] AudioSource callSoundEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +31,7 @@ public class calling : MonoBehaviour
 
             if(hit.collider != null && hit.transform.name == "call" &&boothEnabled)
             {
+                callSoundEffect.Play();
                 boothEnabled = false;
                 gm.CallApplicant();
                 Debug.Log("yess");

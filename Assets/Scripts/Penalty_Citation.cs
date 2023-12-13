@@ -8,6 +8,8 @@ public class Penalty_Citation : MonoBehaviour
     public GameObject penaltyCitationPrefab;
     public Transform Printer;
 
+    [SerializeField] AudioSource penaltySoundEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,7 @@ public class Penalty_Citation : MonoBehaviour
 
     public void SpawnCitation(Sprite citationSprite)
     {
+        penaltySoundEffect.Play();
         GameObject citation= Instantiate(penaltyCitationPrefab, Printer.position, Quaternion.identity);
         citation.GetComponent<DocumentDrag>().frontSprite = citationSprite;
     }
