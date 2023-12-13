@@ -2297,7 +2297,7 @@ MonoBehaviour:
   - {fileID: 6218631964850399242, guid: ffc81027b3a174ae088e2b81f95fb570, type: 3}
   - {fileID: 6218631964850399242, guid: 0a3daec443fd84175b9dde273ba3c564, type: 3}
   applicant: {fileID: 6044315104613922663, guid: 934d51343fe774079b490d6ae899895f, type: 3}
-  topApplicant: {fileID: 6044315104613922663, guid: 934d51343fe774079b490d6ae899895f, type: 3}
+  topApplicant: {fileID: 6044315104613922663, guid: 3b8ea0128f75e4f2aaa3bd4056b30cc9, type: 3}
   applicantIndex: 0
   booth: {fileID: 529983388}
   penaltySpawner: {fileID: 1513523988}
