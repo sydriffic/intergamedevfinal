@@ -88,6 +88,7 @@ public class Applicant : MonoBehaviour
     {
         gm.applicantPresent = false;
         gm.resetBooth();
+        gm.checkEnding();
         if (shouldAccepted != accepted)
         {
             gm.money -= 20;

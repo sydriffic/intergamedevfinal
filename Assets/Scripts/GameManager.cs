@@ -51,10 +51,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("EndBroke");
     }
-    public void EndGameNeutral()
-    {
-        SceneManager.LoadScene("End");
-    }
+ 
 
 
     public void CallApplicant()
@@ -64,8 +61,7 @@ public class GameManager : MonoBehaviour
             applicant = Instantiate(applicants[applicantIndex]);
             Instantiate(topApplicant);
             applicantIndex++;
-        }
-        
+        }  
     }
 
     public void NextApplicant()
@@ -85,5 +81,25 @@ public class GameManager : MonoBehaviour
     public void PenaltySpawn(Sprite a)
     {
         penaltySpawner.GetComponent<Penalty_Citation>().SpawnCitation(a);
+    }
+
+    public void checkEnding()
+    {
+        if(applicants.Length== applicantIndex)
+        {
+            if (money >= 160)
+            {
+                EndGameGood();
+            }
+            else if (money <160 && money>=100)
+            {
+                EndGame();
+            }
+            else
+            {
+                EndGameBad();
+            }
+        }
+        
     }
 }

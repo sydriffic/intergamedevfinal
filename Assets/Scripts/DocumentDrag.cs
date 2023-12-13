@@ -225,4 +225,9 @@ public class DocumentDrag : MonoBehaviour
             rb.gravityScale = gravityLevel;
         }
     }
+
+    public void checkEnding()
+    {
+
+    }
 }
